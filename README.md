@@ -2,6 +2,17 @@
 
 A tablet ordering system any restaurant can adopt. The front counter takes orders from a picture menu, the kitchen tablet gets live tickets and print slips, and customers can order online. Every restaurant sets its own name, menu, prices, tax and pictures.
 
+## Live demo
+
+**Try it now: https://sahnavazchoksi.github.io/restaurant-pos/**
+
+- Staff app (counter, kitchen, orders, setup): https://sahnavazchoksi.github.io/restaurant-pos/
+- Customer ordering page: https://sahnavazchoksi.github.io/restaurant-pos/order/
+
+To see an order travel to the kitchen, open the **Counter** in one browser tab and the **Kitchen** in another tab, then send an order.
+
+> The demo runs on GitHub Pages, which only hosts web pages, so it saves everything **in your own browser** and tabs sync only within that browser. To connect separate tablets with a shared menu and live orders, run the Node.js server as described in [How to run it on your computer](#how-to-run-it-on-your-computer).
+
 | Topping picker | Kitchen display |
 | --- | --- |
 | ![Picking pineapple and tandoori chicken from icon tiles](docs/toppings.png) | ![Kitchen tickets colour-coded by order type](docs/kitchen.png) |

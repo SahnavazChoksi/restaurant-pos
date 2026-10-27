@@ -377,6 +377,9 @@ const Store = {
   initLocal() {
     const load = () => { state.config = this.lsGet('config', null); state.menu = this.lsGet('menu', []); state.orders = this.lsGet('orders', []).sort((a, b) => b.createdAt - a.createdAt); state.loaded = { config: true, menu: true, orders: true }; };
     load();
+    if (!state.config && !state.menu.length) { // first visit: start with the starter menu
+      this.lsSet('config', JSON.parse(JSON.stringify(TEMPLATE.config))); this.lsSet('menu', TEMPLATE.menu.map(m => ({ ...m }))); load();
+    }
     try { this.chan = new BroadcastChannel('orderline'); this.chan.onmessage = () => { load(); onData('all'); }; } catch (e) {}
     onData('all');
   },
@@ -455,7 +458,9 @@ function onData(kind) {
 }
 
 /* ---------- Routing ---------- */
-const CUSTOMER = /\/order\/?$/.test(location.pathname);
+const CUSTOMER = /\/order(\/|\/index\.html|\.html)?$/.test(location.pathname);
+// Address of the app's home page (works at the site root and in a sub-folder such as GitHub Pages)
+const BASE = location.origin + location.pathname.replace(/(order\/?(index\.html)?|order\.html|index\.html)$/, '');
 const VIEWS = [['counter', 'Counter'], ['kitchen', 'Kitchen'], ['orders', 'Orders & pay'], ['online', 'Online menu'], ['setup', 'Setup']];
 let built = false;
 function routeFromHash() { if (CUSTOMER) return 'online'; const h = location.hash.replace('#', ''); return VIEWS.some(v => v[0] === h) ? h : 'counter'; }
@@ -721,7 +726,7 @@ function renderOrders() {
 function buildOnline() {
   const c = cfg();
   $('#main').innerHTML = `<div class="online" data-view="online">
-    ${CUSTOMER ? '' : `<div class="preview-note">🌐 Staff preview of the customer ordering page. Customers order at <code>${esc(location.origin)}/order</code>. Their orders reach the kitchen marked “Online”.</div>`}
+    ${CUSTOMER ? '' : `<div class="preview-note">🌐 Staff preview of the customer ordering page. Customers order at <code>${esc(BASE)}order</code>. Their orders reach the kitchen marked “Online”.</div>`}
     <div class="hero"><div class="t"><b>${esc(c.name)}</b><span>${esc(c.tagline || '')}${c.phone ? ' · ' + esc(c.phone) : ''}</span></div>
       <div class="seg types" role="group" aria-label="Pickup or delivery">${[['pickup', 'Pickup'], ['delivery', 'Delivery']].map(([k, l]) => `<button data-act="otype" data-v="${k}" aria-pressed="${state.online.type === k}">${l}</button>`).join('')}</div></div>
     <section id="on-menu" style="min-width:0"></section>
@@ -782,9 +787,10 @@ function buildSetup() {
     <div class="card"><div class="card-hd"><span class="h">Toppings &amp; add-ons</span><button class="btn sm pri" data-act="edititem" data-kind="topping">+ Add topping</button></div>
       <p class="muted" style="margin:-4px 0 10px">Toppings belong to a category. Items in that category open the topping picker when tapped.</p><div class="rows" id="s-tops"></div></div>
     <div class="card"><div class="card-hd"><span class="h">Put it on your tablets</span></div><div class="steps">
-      <div><b>Front counter tablet</b>Open <code>${esc(location.origin)}/#counter</code>. Take walk-in and phone orders here.</div>
-      <div><b>Kitchen tablet</b>Open <code>${esc(location.origin)}/#kitchen</code>. New tickets appear live. Turn on sound and auto print.</div>
-      <div><b>Your website</b>Link customers to <code>${esc(location.origin)}/order</code>. Orders arrive marked Online.</div>
+      <div><b>Front counter tablet</b>Open <code>${esc(BASE)}#counter</code>. Take walk-in and phone orders here.</div>
+      <div><b>Kitchen tablet</b>Open <code>${esc(BASE)}#kitchen</code>. New tickets appear live. Turn on sound and auto print.</div>
+      <div><b>Your website</b>Link customers to <code>${esc(BASE)}order</code>. Orders arrive marked Online.</div>
+      ${Store.mode === 'local' ? `<div><b>Demo mode</b>This copy saves everything in this browser only. To sync separate tablets, run the Node server (<code>npm start</code>) as described in the README.</div>` : ''}
       <div><b>Start fresh</b><span class="muted">Replace the menu with the starter template.</span><br><button class="btn sm" style="margin-top:6px" data-act="template">Load starter menu</button></div></div></div>
   </div>`;
   $('#profile').addEventListener('submit', async e => {

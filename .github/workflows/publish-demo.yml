@@ -1,0 +1,35 @@
+# Publishes the app in public/ to the gh-pages branch, which GitHub Pages serves
+# as the live demo at https://sahnavazchoksi.github.io/restaurant-pos/
+name: Publish live demo
+
+on:
+  push:
+    branches: [main]
+    paths: ['public/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the static site
+        run: |
+          mkdir -p _site/order
+          cp public/index.html _site/index.html
+          cp public/index.html _site/order/index.html
+          touch _site/.nojekyll
+
+      - name: Push to the gh-pages branch
+        run: |
+          cd _site
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Publish live demo from ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
