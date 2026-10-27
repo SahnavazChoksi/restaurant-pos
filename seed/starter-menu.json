@@ -1,0 +1,408 @@
+{
+  "config": {
+    "name": "Slice & Tandoor",
+    "tagline": "Pizza · Wings · Indian street food",
+    "phone": "416-555-0142",
+    "taxRate": 13,
+    "currency": "$",
+    "deliveryFee": 3.99,
+    "categories": [
+      {
+        "id": "pizza",
+        "name": "Pizza",
+        "icon": "🍕"
+      },
+      {
+        "id": "wings",
+        "name": "Wings",
+        "icon": "🍗"
+      },
+      {
+        "id": "sides",
+        "name": "Sides",
+        "icon": "🍟"
+      },
+      {
+        "id": "drinks",
+        "name": "Drinks",
+        "icon": "🥤"
+      },
+      {
+        "id": "desserts",
+        "name": "Desserts",
+        "icon": "🍰"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "id": "byo",
+      "kind": "item",
+      "cat": "pizza",
+      "name": "Build Your Own (Medium)",
+      "price": 12.99,
+      "icon": "🍕",
+      "sort": 0
+    },
+    {
+      "id": "marg",
+      "kind": "item",
+      "cat": "pizza",
+      "name": "Margherita",
+      "price": 13.99,
+      "icon": "🍅",
+      "sort": 1
+    },
+    {
+      "id": "pep",
+      "kind": "item",
+      "cat": "pizza",
+      "name": "Pepperoni",
+      "price": 15.49,
+      "icon": "🍕",
+      "sort": 2
+    },
+    {
+      "id": "tand",
+      "kind": "item",
+      "cat": "pizza",
+      "name": "Tandoori Chicken Pizza",
+      "price": 17.99,
+      "icon": "🍗",
+      "sort": 3
+    },
+    {
+      "id": "hawa",
+      "kind": "item",
+      "cat": "pizza",
+      "name": "Hawaiian",
+      "price": 15.99,
+      "icon": "🍍",
+      "sort": 4
+    },
+    {
+      "id": "veg",
+      "kind": "item",
+      "cat": "pizza",
+      "name": "Veggie Supreme",
+      "price": 16.49,
+      "icon": "🫑",
+      "sort": 5
+    },
+    {
+      "id": "paneer",
+      "kind": "item",
+      "cat": "pizza",
+      "name": "Paneer Tikka Pizza",
+      "price": 17.49,
+      "icon": "🧈",
+      "sort": 6
+    },
+    {
+      "id": "w1",
+      "kind": "item",
+      "cat": "wings",
+      "name": "Wings (1 lb)",
+      "price": 13.99,
+      "icon": "🍗",
+      "sort": 7
+    },
+    {
+      "id": "w2",
+      "kind": "item",
+      "cat": "wings",
+      "name": "Wings (2 lb)",
+      "price": 24.99,
+      "icon": "🍗",
+      "sort": 8
+    },
+    {
+      "id": "gb",
+      "kind": "item",
+      "cat": "sides",
+      "name": "Garlic Bread",
+      "price": 5.99,
+      "icon": "🥖",
+      "sort": 9
+    },
+    {
+      "id": "fries",
+      "kind": "item",
+      "cat": "sides",
+      "name": "Fries",
+      "price": 4.99,
+      "icon": "🍟",
+      "sort": 10
+    },
+    {
+      "id": "samosa",
+      "kind": "item",
+      "cat": "sides",
+      "name": "Samosa (2 pc)",
+      "price": 4.49,
+      "icon": "🥟",
+      "sort": 11
+    },
+    {
+      "id": "caesar",
+      "kind": "item",
+      "cat": "sides",
+      "name": "Caesar Salad",
+      "price": 7.99,
+      "icon": "🥗",
+      "sort": 12
+    },
+    {
+      "id": "coke",
+      "kind": "item",
+      "cat": "drinks",
+      "name": "Pop (can)",
+      "price": 2.49,
+      "icon": "🥤",
+      "sort": 13
+    },
+    {
+      "id": "lassi",
+      "kind": "item",
+      "cat": "drinks",
+      "name": "Mango Lassi",
+      "price": 4.49,
+      "icon": "🥭",
+      "sort": 14
+    },
+    {
+      "id": "water",
+      "kind": "item",
+      "cat": "drinks",
+      "name": "Bottled Water",
+      "price": 1.99,
+      "icon": "💧",
+      "sort": 15
+    },
+    {
+      "id": "chai",
+      "kind": "item",
+      "cat": "drinks",
+      "name": "Masala Chai",
+      "price": 2.99,
+      "icon": "☕",
+      "sort": 16
+    },
+    {
+      "id": "brownie",
+      "kind": "item",
+      "cat": "desserts",
+      "name": "Brownie",
+      "price": 4.99,
+      "icon": "🍫",
+      "sort": 17
+    },
+    {
+      "id": "gulab",
+      "kind": "item",
+      "cat": "desserts",
+      "name": "Gulab Jamun (2 pc)",
+      "price": 4.99,
+      "icon": "🍮",
+      "sort": 18
+    },
+    {
+      "id": "t_pine",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Pineapple",
+      "price": 1.5,
+      "icon": "🍍",
+      "sort": 19
+    },
+    {
+      "id": "t_tand",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Tandoori Chicken",
+      "price": 2.5,
+      "icon": "🍗",
+      "sort": 20
+    },
+    {
+      "id": "t_pep",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Pepperoni",
+      "price": 1.75,
+      "icon": "🍕",
+      "sort": 21
+    },
+    {
+      "id": "t_bacon",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Bacon",
+      "price": 1.75,
+      "icon": "🥓",
+      "sort": 22
+    },
+    {
+      "id": "t_mush",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Mushrooms",
+      "price": 1.25,
+      "icon": "🍄",
+      "sort": 23
+    },
+    {
+      "id": "t_gp",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Green Peppers",
+      "price": 1.25,
+      "icon": "🫑",
+      "sort": 24
+    },
+    {
+      "id": "t_onion",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Onions",
+      "price": 1,
+      "icon": "🧅",
+      "sort": 25
+    },
+    {
+      "id": "t_jal",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Jalapeños",
+      "price": 1,
+      "icon": "🌶️",
+      "sort": 26
+    },
+    {
+      "id": "t_olive",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Black Olives",
+      "price": 1.25,
+      "icon": "🫒",
+      "sort": 27
+    },
+    {
+      "id": "t_tom",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Tomatoes",
+      "price": 1,
+      "icon": "🍅",
+      "sort": 28
+    },
+    {
+      "id": "t_spin",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Spinach",
+      "price": 1.25,
+      "icon": "🥬",
+      "sort": 29
+    },
+    {
+      "id": "t_corn",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Corn",
+      "price": 1,
+      "icon": "🌽",
+      "sort": 30
+    },
+    {
+      "id": "t_paneer",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Paneer",
+      "price": 2.25,
+      "icon": "🧈",
+      "sort": 31
+    },
+    {
+      "id": "t_garlic",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Roasted Garlic",
+      "price": 0.75,
+      "icon": "🧄",
+      "sort": 32
+    },
+    {
+      "id": "t_cheese",
+      "kind": "topping",
+      "cat": "pizza",
+      "name": "Extra Cheese",
+      "price": 2,
+      "icon": "🧀",
+      "sort": 33
+    },
+    {
+      "id": "s_hot",
+      "kind": "topping",
+      "cat": "wings",
+      "name": "Hot",
+      "price": 0,
+      "icon": "🔥",
+      "sort": 34
+    },
+    {
+      "id": "s_mild",
+      "kind": "topping",
+      "cat": "wings",
+      "name": "Mild",
+      "price": 0,
+      "icon": "🌶️",
+      "sort": 35
+    },
+    {
+      "id": "s_honey",
+      "kind": "topping",
+      "cat": "wings",
+      "name": "Honey Garlic",
+      "price": 0,
+      "icon": "🍯",
+      "sort": 36
+    },
+    {
+      "id": "s_bbq",
+      "kind": "topping",
+      "cat": "wings",
+      "name": "BBQ",
+      "price": 0,
+      "icon": "🍖",
+      "sort": 37
+    },
+    {
+      "id": "s_lemon",
+      "kind": "topping",
+      "cat": "wings",
+      "name": "Lemon Pepper",
+      "price": 0,
+      "icon": "🍋",
+      "sort": 38
+    },
+    {
+      "id": "s_salt",
+      "kind": "topping",
+      "cat": "wings",
+      "name": "Salt & Pepper",
+      "price": 0,
+      "icon": "🧂",
+      "sort": 39
+    },
+    {
+      "id": "s_tand",
+      "kind": "topping",
+      "cat": "wings",
+      "name": "Tandoori Dry Rub",
+      "price": 0.5,
+      "icon": "🌿",
+      "sort": 40
+    }
+  ]
+}

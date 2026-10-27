@@ -1,0 +1,16 @@
+{
+  "name": "restaurant-pos",
+  "version": "1.0.0",
+  "description": "Tablet restaurant ordering system: picture menu counter, live kitchen display with print slips, payments, online ordering, and per-restaurant setup.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": ["restaurant", "pos", "kitchen-display", "online-ordering", "point-of-sale"],
+  "author": "Sahnavaz Choksi",
+  "license": "UNLICENSED",
+  "private": true
+}
